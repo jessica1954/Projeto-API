@@ -39,6 +39,17 @@ const userInterface = {
     li.appendChild(pensamentoConteudo);
     li.appendChild(pensamentoAutoria);
     listaPensamentos.appendChild(li);
+
+    const botaoExcluir = document.createElement("button");
+    botaoExcluir.classList.add("botao-excluir");
+    botaoExcluir.onclick = async () => {
+      try {
+        await api.excluirPensamento(pensamento.id);
+        userInterface.renderizarPensamentos();
+      } catch (erro) {
+        alert("Erro ao excluir pensamento");
+      }
+    };
   },
 };
 
