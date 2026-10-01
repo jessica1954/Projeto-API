@@ -1,3 +1,4 @@
+//REQUISIÇÃO - MÉTODO GET (OBTER DADOS DO SERVIDOR)
 const api = {
   async buscarPensamentos() {
     try {
@@ -8,7 +9,6 @@ const api = {
       throw error;
     }
   },
-
   async salvarPensamentos(pensamento) {
     try {
       const response = await fetch("http://localhost:3000/pensamentos", {
@@ -18,13 +18,12 @@ const api = {
         },
         body: JSON.stringify(pensamento),
       });
-      return await responsei.json();
+      return await response.json();
     } catch {
       alert("Erro ao salvar pensamento");
       throw error;
     }
   },
-
   async excluirPensamento(id) {
     try {
       const response = await fetch(`http://localhost:3000/pensamentos/${id}`, {
@@ -32,6 +31,7 @@ const api = {
       });
     } catch {
       alert("Erro ao excluir o pensamento");
+
       throw error;
     }
   },
